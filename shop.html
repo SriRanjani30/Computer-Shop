@@ -128,14 +128,6 @@
             font-size: 20px;
             margin-bottom: 20px;
         }
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .sidebar ul li {
-            padding: 10px;
-            text-align: center;
-        }
         .main-content {
             margin-left: 220px;
             padding: 20px;
@@ -174,7 +166,25 @@
             border-top: 2px solid #444;
             margin-top: 20px;
         }
+        .home-content, .buy-content, .sell-content, .contact-content, .about-content {
+            display: none;
+        }
     </style>
+    <script>
+        function showContent(contentId) {
+            var contents = document.querySelectorAll('.main-content > div');
+            contents.forEach(function(content) {
+                content.style.display = 'none';
+            });
+            document.getElementById(contentId).style.display = 'block';
+        }
+        function loadPage(pageId) {
+            showContent(pageId);
+        }
+        window.onload = function() {
+            loadPage('home-content');
+        };
+    </script>
 </head>
 <body>
     <header>
@@ -183,74 +193,216 @@
     </header>
     <div class="sidebar">
         <h3>Categories</h3>
-        <ul>
-            <li><a href="#">CPUs</a></li>
-            <li><a href="#">Memory</a></li>
-            <li><a href="#">Graphics Cards</a></li>
-            <li><a href="#">Motherboards</a></li>
-            <li><a href="#">Storage</a></li>
-            <li><a href="#">Power Supplies</a></li>
-        </ul>
+        <a href="javascript:void(0)" onclick="loadPage('cpu')">CPUs</a>
+        <a href="javascript:void(0)" onclick="loadPage('memory')">Memory</a>
+        <a href="javascript:void(0)" onclick="loadPage('gpu')">Graphics Cards</a>
+        <a href="javascript:void(0)" onclick="loadPage('motherboard')">Motherboards</a>
+        <a href="javascript:void(0)" onclick="loadPage('storage')">Storage</a>
+        <a href="javascript:void(0)" onclick="loadPage('psu')">Power Supplies</a>
     </div>
     <div class="main-content">
         <nav>
-            <a href="#">Home</a>
-            <a href="#">Buy Parts</a>
-            <a href="#">Sell Parts</a>
-            <a href="#">Contact Us</a>
-            <a href="#">About Us</a>
+            <a href="javascript:void(0)" onclick="loadPage('home-content')">Home</a>
+            <a href="javascript:void(0)" onclick="loadPage('buy-content')">Buy Parts</a>
+            <a href="javascript:void(0)" onclick="loadPage('sell-content')">Sell Parts</a>
+            <a href="javascript:void(0)" onclick="loadPage('contact-content')">Contact Us</a>
+            <a href="javascript:void(0)" onclick="loadPage('about-content')">About Us</a>
         </nav>
-        <div class="container">
+        <div id="home-content">
+            <h2>Welcome to Our Store!</h2>
+            <p>We offer a wide range of computer spare parts for all your needs.</p>
+        </div>
+        <div id="buy-content">
             <h2>Available Parts</h2>
             <div class="product-grid">
                 <div class="product-item">
-                    <img src="Images/CPU.png" alt="CPU">
+                    <img src="https://via.placeholder.com/150" alt="CPU">
                     <h3>Intel Core i7 CPU</h3>
                     <p>Price: $250</p>
                     <button>Buy Now</button>
                 </div>
                 <div class="product-item">
-                    <img src="Images/RAM.png" alt="RAM">
+                    <img src="https://via.placeholder.com/150" alt="RAM">
                     <h3>8GB DDR4 RAM</h3>
                     <p>Price: $60</p>
                     <button>Buy Now</button>
                 </div>
                 <div class="product-item">
-                    <img src="Images/Graphics Card.png" alt="Graphics Card">
+                    <img src="https://via.placeholder.com/150" alt="Graphics Card">
                     <h3>NVIDIA GTX 1660</h3>
                     <p>Price: $400</p>
                     <button>Buy Now</button>
                 </div>
                 <div class="product-item">
-                    <img src="Images/Motherboard.png" alt="Motherboard">
+                    <img src="https://via.placeholder.com/150" alt="Motherboard">
                     <h3>ASUS Z390 Motherboard</h3>
                     <p>Price: $180</p>
                     <button>Buy Now</button>
                 </div>
                 <div class="product-item">
-                    <img src="Images/Hard Drive.png" alt="Hard Drive">
+                    <img src="https://via.placeholder.com/150" alt="Hard Drive">
                     <h3>1TB SSD</h3>
                     <p>Price: $120</p>
                     <button>Buy Now</button>
                 </div>
                 <div class="product-item">
-                    <img src="Images/Power Supply.png" alt="Power Supply">
-                    <h3>750W Power Supply</h3>
-                    <p>Price: $90</p>
+                    <img src="https://via.placeholder.com/150" alt="Power Supply">
+                    <h3>750W Power Supply</h3
+                                        <p>Price: $90</p>
                     <button>Buy Now</button>
                 </div>
             </div>
+        </div>
+        <div id="sell-content">
+            <h2>Sell Your Spare Parts</h2>
+            <p>If you have spare parts you'd like to sell, fill out the form below, and we'll get in touch with you!</p>
+            <form>
+                <label for="part-name">Part Name:</label>
+                <input type="text" id="part-name" name="part-name" required><br><br>
+                <label for="part-condition">Condition:</label>
+                <select id="part-condition" name="part-condition">
+                    <option value="new">New</option>
+                    <option value="used">Used</option>
+                    <option value="refurbished">Refurbished</option>
+                </select><br><br>
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" required><br><br>
+                <label for="contact-info">Contact Information:</label>
+                <input type="text" id="contact-info" name="contact-info" required><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div id="contact-content">
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you! You can reach us at:</p>
+            <p>Email: support@computerspareparts.com</p>
+            <p>Phone: +1 234 567 8901</p>
             <div class="newsletter">
-                <h2>Subscribe to our Newsletter</h2>
-                <p>Get the latest updates on new products and upcoming sales</p>
-                <input type="email" placeholder="Enter your email address">
-                <input type="submit" value="Subscribe">
+                <h3>Subscribe to Our Newsletter</h3>
+                <p>Stay updated with our latest products and offers!</p>
+                <form>
+                    <input type="email" placeholder="Enter your email" required>
+                    <input type="submit" value="Subscribe">
+                </form>
+            </div>
+        </div>
+        <div id="about-content">
+            <h2>About Us</h2>
+            <p>We are a leading retailer of computer spare parts, offering high-quality products at competitive prices.</p>
+            <p>With years of experience in the industry, we pride ourselves on our exceptional customer service and extensive product knowledge.</p>
+            <p>Whether you're looking for the latest components or trying to find a replacement for an old part, we've got you covered.</p>
+        </div>
+        <div id="cpu">
+            <h2>CPUs</h2>
+            <p>Find the best processors for your computer build or upgrade.</p>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="Images/Intel.png" alt="Intel Core i5">
+                    <h3>Intel Core i5</h3>
+                    <p>Price: $200</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="product-item">
+                    <img src="Images/AMD.png" alt="AMD Ryzen 5">
+                    <h3>AMD Ryzen 5</h3>
+                    <p>Price: $220</p>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <div id="memory">
+            <h2>Memory</h2>
+            <p>Upgrade your system's RAM for better performance.</p>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="Images.DDR4.png" alt="8GB DDR4">
+                    <h3>8GB DDR4</h3>
+                    <p>Price: $60</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="product-item">
+                    <img src="Images/DDR416.png" alt="16GB DDR4">
+                    <h3>16GB DDR4</h3>
+                    <p>Price: $120</p>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <div id="gpu">
+            <h2>Graphics Cards</h2>
+            <p>Enhance your gaming or graphic design experience with our range of GPUs.</p>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="Images/Nvidia.png" alt="NVIDIA GTX 1650">
+                    <h3>NVIDIA GTX 1650</h3>
+                    <p>Price: $300</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="product-item">
+                    <img src="Images/Radeon.png" alt="AMD Radeon RX 580">
+                    <h3>AMD Radeon RX 580</h3>
+                    <p>Price: $280</p>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <div id="motherboard">
+            <h2>Motherboards</h2>
+            <p>Find the perfect motherboard for your system.</p>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="Images/Asus.png" alt="ASUS Prime Z490">
+                    <h3>ASUS Prime Z490</h3>
+                    <p>Price: $180</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="product-item">
+                    <img src="Images/Tomahawk.png" alt="MSI B450 Tomahawk">
+                    <h3>MSI B450 Tomahawk</h3>
+                    <p>Price: $140</p>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <div id="storage">
+            <h2>Storage</h2>
+            <p>Expand your storage with our range of hard drives and SSDs.</p>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="Images/SSD500.png" alt="500GB SSD">
+                    <h3>500GB SSD</h3>
+                    <p>Price: $80</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="product-item">
+                    <img src="Images/SSD2TB.png" alt="2TB HDD">
+                    <h3>2TB HDD</h3>
+                    <p>Price: $100</p>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <div id="psu">
+            <h2>Power Supplies</h2>
+            <p>Ensure a stable power supply to your system with our range of PSUs.</p>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="Images/PSU600.png" alt="600W PSU">
+                    <h3>600W PSU</h3>
+                    <p>Price: $70</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="product-item">
+                    <img src="Images/PSU850.png" alt="850W PSU">
+                    <h3>850W PSU</h3>
+                    <p>Price: $120</p>
+                    <button>Buy Now</button>
+                </div>
             </div>
         </div>
     </div>
     <footer>
         <p>&copy; 2024 Computer Spare Parts Store. All rights reserved.</p>
-        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </footer>
 </body>
 </html>
