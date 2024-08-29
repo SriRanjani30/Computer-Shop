@@ -9,52 +9,80 @@
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             margin: 0;
+            padding: 0;
         }
         header {
-            background-color: #222;
+            background-color: #444;
             color: white;
             text-align: center;
-            padding: 15px;
+            padding: 20px 0;
+            font-size: 28px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        header p {
+            margin: 5px 0;
+            font-size: 16px;
+            font-style: italic;
         }
         nav {
             background-color: #333;
             overflow: hidden;
+            border-bottom: 2px solid #444;
+            margin-bottom: 20px;
         }
         nav a {
             float: left;
             display: block;
             color: white;
             text-align: center;
-            padding: 14px 20px;
+            padding: 15px 20px;
             text-decoration: none;
+            font-size: 16px;
+            border-right: 1px solid #555;
         }
         nav a:hover {
-            background-color: #111;
+            background-color: #555;
+        }
+        nav a:last-child {
+            border-right: none;
         }
         .container {
             padding: 20px;
+            background-color: #fff;
+        }
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
         }
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
         }
         .product-item {
-            background-color: white;
-            padding: 15px;
-            border: 1px solid #ccc;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .product-item img {
             max-width: 100%;
             height: auto;
+            margin-bottom: 10px;
         }
         .product-item h3 {
             font-size: 18px;
             margin: 10px 0;
+            color: #222;
         }
         .product-item p {
             font-size: 16px;
+            color: #555;
         }
         .product-item button {
             background-color: #333;
@@ -62,16 +90,88 @@
             border: none;
             padding: 10px 15px;
             cursor: pointer;
-            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
         .product-item button:hover {
-            background-color: #555;
+            background-color: #444;
+        }
+        .product-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            text-align: center;
+            border-bottom: 1px solid #444;
+        }
+        .sidebar a:hover {
+            background-color: #444;
+        }
+        .sidebar h3 {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            text-align: center;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+            overflow: hidden;
+        }
+        .newsletter {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .newsletter input[type="email"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+        .newsletter input[type="submit"] {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .newsletter input[type="submit"]:hover {
+            background-color: #444;
         }
         footer {
-            background-color: #222;
+            background-color: #333;
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 15px 0;
+            font-size: 14px;
+            border-top: 2px solid #444;
             margin-top: 20px;
         }
     </style>
@@ -81,56 +181,76 @@
         <h1>Computer Spare Parts Store</h1>
         <p>Your one-stop shop for all computer spare parts</p>
     </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Buy Parts</a>
-        <a href="#">Sell Parts</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
-    </nav>
-    <div class="container">
-        <h2>Available Parts</h2>
-        <div class="product-grid">
-            <div class="product-item">
-                <img src="Images/CPU" alt="CPU.png">
-                <h3>Intel Core i7 CPU</h3>
-                <p>Price: $250</p>
-                <button>Buy Now</button>
+    <div class="sidebar">
+        <h3>Categories</h3>
+        <ul>
+            <li><a href="#">CPUs</a></li>
+            <li><a href="#">Memory</a></li>
+            <li><a href="#">Graphics Cards</a></li>
+            <li><a href="#">Motherboards</a></li>
+            <li><a href="#">Storage</a></li>
+            <li><a href="#">Power Supplies</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Buy Parts</a>
+            <a href="#">Sell Parts</a>
+            <a href="#">Contact Us</a>
+            <a href="#">About Us</a>
+        </nav>
+        <div class="container">
+            <h2>Available Parts</h2>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="Images/CPU.png" alt="CPU">
+                    <h3>Intel Core i7 CPU</h3>
+                    <p>Price: $250</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="product-item">
+                    <img src="Images/RAM.png" alt="RAM">
+                    <h3>8GB DDR4 RAM</h3>
+                    <p>Price: $60</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="product-item">
+                    <img src="Images/Graphics Card.png" alt="Graphics Card">
+                    <h3>NVIDIA GTX 1660</h3>
+                    <p>Price: $400</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="product-item">
+                    <img src="Images/Motherboard.png" alt="Motherboard">
+                    <h3>ASUS Z390 Motherboard</h3>
+                    <p>Price: $180</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="product-item">
+                    <img src="Images/Hard Drive.png" alt="Hard Drive">
+                    <h3>1TB SSD</h3>
+                    <p>Price: $120</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="product-item">
+                    <img src="Images/Power Supply.png" alt="Power Supply">
+                    <h3>750W Power Supply</h3>
+                    <p>Price: $90</p>
+                    <button>Buy Now</button>
+                </div>
             </div>
-            <div class="product-item">
-                <img src="Images/RAM" alt="RAM.png">
-                <h3>8GB DDR4 RAM</h3>
-                <p>Price: $60</p>
-                <button>Buy Now</button>
-            </div>
-            <div class="product-item">
-                <img src="Images/Graphics Card" alt="Graphics Card.png">
-                <h3>NVIDIA GTX 1660</h3>
-                <p>Price: $400</p>
-                <button>Buy Now</button>
-            </div>
-            <div class="product-item">
-                <img src="Images/Motherboard" alt="Motherboard.png">
-                <h3>ASUS Z390 Motherboard</h3>
-                <p>Price: $180</p>
-                <button>Buy Now</button>
-            </div>
-            <div class="product-item">
-                <img src="Images/Hard Drive" alt="Hard Drive.png">
-                <h3>1TB SSD</h3>
-                <p>Price: $120</p>
-                <button>Buy Now</button>
-            </div>
-            <div class="product-item">
-                <img src="Images/Power Supply" alt="Power Supply.png">
-                <h3>750W Power Supply</h3>
-                <p>Price: $90</p>
-                <button>Buy Now</button>
+            <div class="newsletter">
+                <h2>Subscribe to our Newsletter</h2>
+                <p>Get the latest updates on new products and upcoming sales</p>
+                <input type="email" placeholder="Enter your email address">
+                <input type="submit" value="Subscribe">
             </div>
         </div>
     </div>
     <footer>
         <p>&copy; 2024 Computer Spare Parts Store. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </footer>
 </body>
 </html>
