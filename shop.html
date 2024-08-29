@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Spare Parts Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        header {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #111;
+        }
+        .container {
+            padding: 20px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .product-item {
+            background-color: white;
+            padding: 15px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product-item h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .product-item p {
+            font-size: 16px;
+        }
+        .product-item button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .product-item button:hover {
+            background-color: #555;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Computer Spare Parts Store</h1>
+        <p>Your one-stop shop for all computer spare parts</p>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Buy Parts</a>
+        <a href="#">Sell Parts</a>
+        <a href="#">Contact Us</a>
+        <a href="#">About Us</a>
+    </nav>
+    <div class="container">
+        <h2>Available Parts</h2>
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="Images/CPU" alt="CPU.png">
+                <h3>Intel Core i7 CPU</h3>
+                <p>Price: $250</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="product-item">
+                <img src="Images/RAM" alt="RAM.png">
+                <h3>8GB DDR4 RAM</h3>
+                <p>Price: $60</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="product-item">
+                <img src="Images/Graphics Card" alt="Graphics Card.png">
+                <h3>NVIDIA GTX 1660</h3>
+                <p>Price: $400</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="product-item">
+                <img src="Images/Motherboard" alt="Motherboard.png">
+                <h3>ASUS Z390 Motherboard</h3>
+                <p>Price: $180</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="product-item">
+                <img src="Images/Hard Drive" alt="Hard Drive.png">
+                <h3>1TB SSD</h3>
+                <p>Price: $120</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="product-item">
+                <img src="Images/Power Supply" alt="Power Supply.png">
+                <h3>750W Power Supply</h3>
+                <p>Price: $90</p>
+                <button>Buy Now</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Computer Spare Parts Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>
